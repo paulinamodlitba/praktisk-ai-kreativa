@@ -1,0 +1,13 @@
+datum,veckodag,ort,scen,platser,salda_biljetter,fribiljetter,snittpris_kr,andel_kop_via_webb_procent,kommentar
+2026-09-04,fredag,Malmö,Hamnscenen,220,214,6,245,82,Premiär
+2026-09-05,lördag,Malmö,Hamnscenen,220,220,0,260,85,Slutsålt
+2026-09-10,torsdag,Lund,Stenportsscenen,180,151,8,230,78,
+2026-09-12,lördag,Helsingborg,Sundsalongen,200,172,5,240,74,
+2026-09-17,torsdag,Hässleholm,Folkets hus,160,58,10,190,41,Krock med lokal fotbollsmatch
+2026-09-18,fredag,Kristianstad,Kulturscenen,180,96,7,210,55,
+2026-09-24,torsdag,Ystad,Teaterladan,140,131,4,220,47,Reportage i lokaltidningen veckan innan
+2026-09-25,fredag,Ystad,Teaterladan,140,140,0,220,44,Extraföreställning efter efterfrågan
+2026-10-01,torsdag,Trelleborg,Medborgarhuset,150,49,12,180,39,
+2026-10-02,fredag,Landskrona,Konsthallens scen,120,88,6,200,60,Publiksamtal efter föreställningen
+2026-10-08,torsdag,Eslöv,Ordenshuset,130,41,9,180,36,
+2026-10-10,lördag,Malmö,Hamnscenen,220,205,3,250,80,Avslutning

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Praktisk AI för kreativa verksamheter · Media Evolution</title>
+<meta name="description" content="Kurssajt för Practical AI for creative professionals, businesses and organisations på Media Evolution i Malmö, 27 november och 9 december 2026. Kursledare Paulina Modlitba.">
+<style>
+:root{color-scheme:light;--bg:#f9f9f7;--surf:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--mut:#898781;
+--grid:#e1e0d9;--axis:#c3c2b7;--line:rgba(11,11,11,.10);
+--acc:#2a78d6;--warm:#eb6834;--warmbg:rgba(235,104,52,.09);--good:#0ca30c;--crit:#d03b3b;--nl:#8a5cd6;--nlbg:rgba(138,92,214,.10);--tv:#0f8a7e;--tvbg:rgba(15,138,126,.10)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){color-scheme:dark;--bg:#0d0d0d;--surf:#1a1a19;
+--ink:#fff;--ink2:#c3c2b7;--mut:#898781;--grid:#2c2c2a;--axis:#383835;--line:rgba(255,255,255,.10);
+--acc:#3987e5;--warm:#d95926;--warmbg:rgba(217,89,38,.14);--crit:#e66767;--nl:#a988e6;--nlbg:rgba(169,136,230,.14);--tv:#3cc4b4;--tvbg:rgba(60,196,180,.14)}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:44px 24px 80px}
+a{color:var(--acc)}
+header.top{border-bottom:1px solid var(--line);padding-bottom:26px}
+.kicker{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin:0 0 14px}
+h1{font-size:clamp(27px,4.4vw,40px);line-height:1.14;margin:0 0 18px;letter-spacing:-.022em;max-width:24ch}
+h1 em{font-style:normal;color:var(--warm)}
+.sub{color:var(--ink2);margin:0;max-width:68ch;font-size:16.5px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13.5px;color:var(--ink2);margin-top:16px}
+.meta b{color:var(--ink);font-weight:600}
+h2{font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);
+margin:48px 0 8px;padding-bottom:10px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:9px;scroll-margin-top:70px}
+h2 .badge{width:9px;height:9px;border-radius:50%;flex:none;background:var(--warm)}
+h2 .badge.nl{background:var(--nl)}
+h2 .badge.tv{background:var(--tv)}
+h2 .count{margin-left:auto;text-transform:none;letter-spacing:0;font-size:12.5px}
+.lede{color:var(--ink2);font-size:14.5px;margin:0 0 20px;max-width:68ch}
+.lede strong{color:var(--ink);font-weight:600}
+h3{font-size:18px;margin:0 0 5px;letter-spacing:-.01em;line-height:1.3}
+p{max-width:72ch}
+[hidden]{display:none!important}
+
+/* flikar */
+.tabs{display:flex;gap:4px;margin:22px 0 6px;border-bottom:1px solid var(--line);overflow-x:auto;position:sticky;top:0;background:var(--bg);z-index:5;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{font:inherit;font-size:14.5px;font-weight:600;border:0;background:none;color:var(--mut);padding:12px 14px 12px;cursor:pointer;
+border-bottom:2px solid transparent;margin-bottom:-1px;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--warm)}
+.tabs button[data-tab=mellan][aria-selected=true]{border-bottom-color:var(--tv)}
+.tabs button[data-tab=bygg][aria-selected=true],.tabs button[data-tab=ovning][aria-selected=true]{border-bottom-color:var(--nl)}
+.tabs .n{font-size:11.5px;font-weight:600;background:var(--line);color:var(--ink2);border-radius:20px;padding:1px 7px}
+button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
+/* nyckeltal */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:11px;margin-top:26px}
+.tile{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:15px 15px 13px}
+.tile .lab{font-size:11.5px;color:var(--mut);margin:0 0 6px;letter-spacing:.02em}
+.tile .val{font-size:29px;font-weight:640;letter-spacing:-.025em;line-height:1.05;margin:0}
+.tile .val small{font-size:14px;font-weight:500;color:var(--ink2);letter-spacing:0}
+.tile .val.txt{font-size:17px;line-height:1.25;letter-spacing:-.01em}
+.tile .dl{font-size:12.5px;margin:7px 0 0;color:var(--ink2)}
+
+/* kort */
+.card{background:var(--surf);border:1px solid var(--line);border-radius:13px;padding:20px;margin:0 0 14px}
+.card p{font-size:14.5px;color:var(--ink2);margin:8px 0 0}
+.card p strong{color:var(--ink);font-weight:600}
+.card .typ{font-size:11px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;color:var(--warm);margin:0 0 4px}
+.card.mel .typ{color:var(--tv)}
+.card.mel{border-left:3px solid var(--tv)}
+.card .typ span{color:var(--mut);font-weight:600;margin-left:6px;letter-spacing:.04em}
+.q{margin-top:14px;padding:11px 14px;background:var(--warmbg);border-radius:10px;font-size:14px;color:var(--ink)}
+.q small{display:block;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--warm);font-weight:700;margin-bottom:2px}
+ul.plain,ol.plain{margin:10px 0 0;padding-left:20px}
+ul.plain li,ol.plain li{font-size:14.5px;color:var(--ink2);margin-bottom:7px}
+ul.plain li strong,ol.plain li strong{color:var(--ink);font-weight:600}
+
+/* schema */
+.tw{overflow-x:auto;background:var(--surf);border:1px solid var(--line);border-radius:12px;margin-bottom:22px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+tr:last-child td{border-bottom:0}
+thead th{color:var(--mut);font-weight:600;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+td.t{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink2);width:118px}
+td.d{white-space:nowrap;color:var(--mut);font-size:12.5px;text-align:right;width:70px}
+tr.paus td{background:var(--bg);color:var(--mut)}
+
+/* checklista */
+.check{display:grid;gap:9px}
+.ci{display:flex;gap:13px;align-items:flex-start;background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer}
+.ci input{accent-color:var(--good);width:18px;height:18px;margin:3px 0 0;flex:none;cursor:pointer}
+.ci .t{font-size:15px;font-weight:600;margin:0;line-height:1.35}
+.ci .d{font-size:14px;color:var(--ink2);margin:4px 0 0}
+.ci .must{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--warm);margin-left:8px}
+.ci.done{border-color:var(--good)}
+.ci.done .t{text-decoration:line-through;text-decoration-color:var(--mut)}
+
+/* rutnät */
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:11px;margin-top:14px}
+.cell{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.cell b{display:block;font-size:14px;margin-bottom:3px}
+.cell span{font-size:13.5px;color:var(--ink2)}
+.sort{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:11px;margin-top:14px}
+.sort .cell{border-top:3px solid var(--warm)}
+.sort .cell.b{border-top-color:var(--nl)}
+.sort .cell.c{border-top-color:var(--tv)}
+
+/* verktygsflikar */
+.seg{display:inline-flex;background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:3px;margin:4px 0 18px;flex-wrap:wrap}
+.seg button{font:inherit;font-size:13.5px;border:0;background:transparent;color:var(--ink2);padding:7px 14px;border-radius:7px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg);font-weight:600}
+.steps{display:grid;gap:10px;counter-reset:s}
+.step{display:flex;gap:14px;background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.step .no{flex:none;font-size:12px;font-weight:700;color:var(--nl);font-variant-numeric:tabular-nums;width:22px;padding-top:2px}
+.step .t{font-size:15px;font-weight:600;margin:0}
+.step .d{font-size:14px;color:var(--ink2);margin:3px 0 0}
+.note{font-size:13.5px;color:var(--ink2);background:var(--nlbg);border-radius:10px;padding:11px 14px;margin-top:12px}
+.note strong{color:var(--ink)}
+.prompt{position:relative;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px 14px;margin-top:12px;font:13.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink);white-space:pre-wrap}
+.prompt .lab{display:block;font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+.copy{position:absolute;top:10px;right:10px;font:600 12px system-ui,sans-serif;border:1px solid var(--line);background:var(--surf);color:var(--ink2);border-radius:7px;padding:4px 10px;cursor:pointer}
+.copy:hover{border-color:var(--axis);color:var(--ink)}
+.copy.ok{color:var(--good);border-color:var(--good)}
+
+/* exempelfrågor */
+details{background:var(--surf);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:10px}
+summary{cursor:pointer;padding:14px 18px;font-size:14.5px;font-weight:600;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--mut);font-size:19px;font-weight:400}
+details[open] summary::after{content:"\2212"}
+details .body{padding:4px 18px 16px;border-top:1px solid var(--line)}
+.qs{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.qs li{font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:9px 12px;display:flex;gap:10px;align-items:flex-start;justify-content:space-between}
+.qs li button{flex:none;font:600 11.5px system-ui,sans-serif;border:0;background:none;color:var(--acc);cursor:pointer;padding:2px 0}
+
+.warnbox{margin-top:30px;background:var(--surf);border:1px solid var(--line);border-left:3px solid var(--crit);border-radius:12px;padding:16px 18px;font-size:14px;color:var(--ink2)}
+.warnbox strong{color:var(--ink)}
+.cta{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;border-radius:10px;background:var(--ink);color:var(--bg);padding:9px 16px;text-decoration:none;margin-top:12px}
+.cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+
+/* övningsmaterial */
+.files{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-top:14px}
+.file{display:flex;flex-direction:column;gap:3px;background:var(--surf);border:1px solid var(--line);border-radius:11px;padding:12px 14px;text-decoration:none;color:var(--ink)}
+.file:hover{border-color:var(--nl)}
+.file b{font-size:14px;font-weight:600}
+.file span{font-size:12.5px;color:var(--ink2)}
+.file i{font-style:normal;font-size:11px;color:var(--nl);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.ex .typ{color:var(--nl)}
+.ex{border-left:3px solid var(--nl)}
+.up{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;align-items:center}
+.up .lab{font-size:12px;color:var(--mut);margin-right:2px}
+.chip{font-size:12px;color:var(--ink);background:var(--nlbg);border-radius:20px;padding:2px 10px;white-space:nowrap}
+.facit{font-size:13.5px;color:var(--ink2);margin-top:12px}
+.facit summary{padding:10px 14px;font-size:13.5px}
+footer{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--mut);display:flex;flex-wrap:wrap;gap:6px 20px}
+footer a{color:var(--mut)}
+footer b{color:var(--ink2)}
+@media(max-width:640px){.wrap{padding:28px 16px 56px}.card{padding:16px}.tabs button{padding:12px 9px;font-size:14px}td.d{display:none}td.t{width:auto}}
+@media print{.tabs,.copy,.qs li button{display:none!important}section[hidden]{display:block!important}body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+<p class="kicker">Media Evolution × We Should Be Friends · Malmö · hösten 2026</p>
+<h1>Praktisk AI för <em>kreativa verksamheter</em></h1>
+<p class="sub">Kursen hålls av Paulina Modlitba på två halvdagar. Första gången kartlägger du din egen vardag och väljer en uppgift där AI kan göra mest nytta. Mellan tillfällena samlar du material. Andra gången bygger du en egen AI-assistent av det materialet och går hem med något du kan använda direkt.</p>
+<div class="meta"><span><b>27 nov</b> och <b>9 dec</b>, kl 09.00–12.30</span><span>Media Evolution, Stora Varvsgatan 6A, Malmö</span><span>Kaffe från 08.30</span></div>
+<div class="tiles">
+<div class="tile"><p class="lab">Fysiska träffar</p><p class="val">2 <small>halvdagar</small></p><p class="dl">Samma grupp båda gångerna</p></div>
+<div class="tile"><p class="lab">Digital handledning</p><p class="val txt">Fre 4 dec<br>kl 10–11</p><p class="dl">Öppen frågestund på Zoom</p></div>
+<div class="tile"><p class="lab">Verktyg</p><p class="val">3 <small>att välja mellan</small></p><p class="dl">Claude, ChatGPT eller Copilot</p></div>
+<div class="tile"><p class="lab">Det du går hem med</p><p class="val">1 <small>egen assistent</small></p><p class="dl">Byggd av ditt eget material</p></div>
+</div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Kursens delar">
+<button role="tab" data-tab="forbered" aria-selected="true">Förbered dig</button>
+<button role="tab" data-tab="t1" aria-selected="false">Tillfälle 1 <span class="n">27/11</span></button>
+<button role="tab" data-tab="mellan" aria-selected="false">Mellan tillfällena</button>
+<button role="tab" data-tab="t2" aria-selected="false">Tillfälle 2 <span class="n">9/12</span></button>
+<button role="tab" data-tab="bygg" aria-selected="false">Bygg din assistent</button>
+<button role="tab" data-tab="ovning" aria-selected="false">Övningsmaterial</button>
+</nav>
+
+<!-- ===================== FÖRBERED ===================== -->
+<section id="sec-forbered" role="tabpanel">
+<h2><span class="badge"></span>Inför 27 november <span class="count" id="ckCount"></span></h2>
+<p class="lede">Ett "måste" och några saker som gör första tillfället smidigare. Bocka av allt eftersom, sajten minns det i din webbläsare.</p>
+<div class="check" id="check">
+<label class="ci"><input type="checkbox" data-k="verktyg"><div><p class="t">Skaffa ett AI-verktyg med betalkonto <span class="must">Måste</span></p><p class="d">Välj ett av Claude, ChatGPT eller Microsoft Copilot och skaffa den lägsta betalnivån, t ex Claude Pro eller ChatGPT Plus (ca 250 kr i månaden). Betalversionen behövs för att bygga egna assistenter med egen kunskapsbank, och du kan säga upp den efter kursen. Har din arbetsplats redan Copilot eller ett företagskonto funkar det utmärkt.</p></div></label>
+<label class="ci"><input type="checkbox" data-k="logga"><div><p class="t">Logga in en gång i förväg</p><p class="d">Då vet du att kontot och betalningen fungerar. Ladda gärna ner appen till datorn: <a href="https://claude.ai/download" target="_blank" rel="noopener">Claude</a>, <a href="https://chatgpt.com/download" target="_blank" rel="noopener">ChatGPT</a> eller <a href="https://copilot.microsoft.com" target="_blank" rel="noopener">Copilot</a>.</p></div></label>
+<label class="ci"><input type="checkbox" data-k="uppgift"><div><p class="t">Fundera gärna på din vardag</p><p class="d">Vad tar mycket tid, vad skjuter du upp, vad gör du gärna smidigare? T ex ansökningar, rapporter till finansiärer, pressutskick, produktionsplanering eller kommunikation med publik. Inget krav, vi kartlägger och väljer uppgift tillsammans på plats.</p></div></label>
+<label class="ci"><input type="checkbox" data-k="dator"><div><p class="t">Packa laptop och laddare</p><p class="d">Mac eller Windows går lika bra.</p></div></label>
+</div>
+<div class="note"><strong>Strular det?</strong> Helt okej. Kom som du är, vi löser inloggningar tillsammans på plats från 08.30. Frågor om verktygen innan kursen? Mejla Paulina på <a href="mailto:paulina.modlitba@gmail.com">paulina.modlitba@gmail.com</a>.</div>
+
+<h2><span class="badge"></span>Kursens upplägg</h2>
+<p class="lede">Fokus ligger på dina egna utmaningar snarare än på enskilda verktyg. Vi utgår från tre områden som många kreativa verksamheter brottas med.</p>
+<div class="grid4">
+<div class="cell"><b>Mindre ofrivillig administration</b><span>Planering, koordinering, dokumentation, ansökningar och rapportering, så att mer tid går till skapande.</span></div>
+<div class="cell"><b>Publik, omvärld och trender</b><span>Analysera målgrupper, utveckla kommunikation och följa det som händer i branschen.</span></div>
+<div class="cell"><b>Egna AI-stödda resurser</b><span>Assistenter, kunskapsbanker och enklare agenter anpassade för din verksamhet, utan att programmera.</span></div>
+</div>
+</section>
+
+<!-- ===================== TILLFÄLLE 1 ===================== -->
+<section id="sec-t1" role="tabpanel" hidden>
+<h2><span class="badge"></span>Tillfälle 1 · Erfarenheter, möjligheter och egna utmaningar</h2>
+<p class="lede">Fredag 27 november kl 09.00–12.30. Tiderna är ungefärliga och kan justeras på plats.</p>
+<div class="tw"><table>
+<thead><tr><th>Tid</th><th>Block</th><th class="d"></th></tr></thead>
+<tbody>
+<tr><td class="t">08.30–09.00</td><td>Kaffe och incheckning</td><td class="d">30 min</td></tr>
+<tr><td class="t">09.00–09.15</td><td>Icebreaker: vi lär känna varandra</td><td class="d">15 min</td></tr>
+<tr><td class="t">09.15–09.55</td><td>AI i kreativa verksamheter i dag</td><td class="d">40 min</td></tr>
+<tr><td class="t">09.55–10.30</td><td>Erfarenheter, möjligheter och farhågor</td><td class="d">35 min</td></tr>
+<tr class="paus"><td class="t">10.30–10.50</td><td>Fika</td><td class="d">20 min</td></tr>
+<tr><td class="t">10.50–11.15</td><td>Från administration till värdeskapande</td><td class="d">25 min</td></tr>
+<tr><td class="t">11.15–11.45</td><td>Kartlägg din verksamhets största möjligheter</td><td class="d">30 min</td></tr>
+<tr><td class="t">11.45–12.30</td><td>Från utmaning till projekt</td><td class="d">45 min</td></tr>
+</tbody></table></div>
+
+<article class="card"><p class="typ">Punkt 0 <span>15 min</span></p><h3>Icebreaker: vi lär känna varandra</h3>
+<p>Presentera dig vid bordet: namn och vad du jobbar med. Skriv sedan två post-its och sätt upp dem på väggarna.</p>
+<div class="sort"><div class="cell"><b>"Det här får AI gärna ta"</b><span>En uppgift du gärna lämnar ifrån dig.</span></div><div class="cell c"><b>"Det här rör ingen utom jag"</b><span>Något som är ditt och ska förbli ditt.</span></div></div>
+<p>Väggarna följer med oss genom hela förmiddagen.</p></article>
+
+<article class="card"><p class="typ">Punkt 1 · inspiration <span>40 min</span></p><h3>AI i kreativa verksamheter i dag</h3>
+<p>En översikt över hur AI används i praktiken och vilka möjligheter som är mest relevanta för kreatörer och kulturorganisationer: kommunikation och innehåll, projektledning och administration, ansökningar och rapportering, omvärldsbevakning, publikanalys, kunskapshantering och skillnaden mellan att chatta och att bygga en assistent med egen kunskapsbank.</p>
+<div class="q"><small>Reflektion</small>Vilken av möjligheterna kändes mest relevant för din verksamhet?</div></article>
+
+<article class="card"><p class="typ">Punkt 2 · samtal <span>35 min</span></p><h3>Erfarenheter, möjligheter och farhågor</h3>
+<p>Det finns inga rätta svar här. Vi delar erfarenheter vid borden och samlar ihop i helgrupp.</p>
+<ul class="plain"><li>Vad använder du AI till i dag, och vad funkar bra eller sämre?</li><li>Vilka möjligheter ser du?</li><li>Vilka farhågor har du kring <strong>kvalitet, kreativitet, upphovsrätt</strong> och framtida yrkesroller?</li></ul>
+<div class="q"><small>Diskussionsfråga</small>Titta på post-it-väggarna. Var drar ni gränsen, och varför drar ni den olika?</div></article>
+
+<article class="card"><p class="typ">Punkt 3 · fördjupning <span>25 min</span></p><h3>Från administration till värdeskapande</h3>
+<p>Konkreta arbetsflöden där AI kan frigöra tid och stärka verksamheten: ansökningar och finansiering, rapportering till finansiärer, projekt- och produktionsplanering, kommunikation, omvärldsbevakning, publikdialog och kunskapshantering. Vi visar exempel live.</p></article>
+
+<article class="card"><p class="typ">Punkt 4 · workshop <span>30 min</span></p><h3>Kartlägg din verksamhets största möjligheter</h3>
+<p>Fundera enskilt i tio minuter, prata sedan i din grupp. Använd arbetsbladet.</p>
+<ol class="plain"><li>Vad tar mest tid i din vardag i dag?</li><li>Vilka arbetsuppgifter är återkommande och repetitiva?</li><li>Vilka uppgifter skjuter du gärna upp?</li><li>Var riskerar viktig kunskap att gå förlorad, t ex när någon slutar eller ett projekt tar slut?</li><li>Vilket område skulle skapa mest värde om det blev smidigare?</li></ol>
+<p><strong>Fyra frågor som hjälper dig välja:</strong></p>
+<div class="grid4"><div class="cell"><b>Tydligt värde</b><span>Sparar det tid eller pengar, eller höjer det kvaliteten?</span></div><div class="cell"><b>Underlag finns</b><span>Har du materialet som krävs? Det behöver inte vara perfekt.</span></div><div class="cell"><b>Avgränsat</b><span>Går det att testa på några veckor?</span></div><div class="cell"><b>Mätbart</b><span>Hur skulle du märka att det funkar?</span></div></div></article>
+
+<article class="card"><p class="typ">Punkt 5 · workshop <span>45 min</span></p><h3>Från utmaning till projekt</h3>
+<p>Välj ett konkret område och skissa en första lösning. Fyra fält räcker.</p>
+<div class="grid4"><div class="cell"><b>Problemet</b><span>Vad ska assistenten lösa åt dig? En mening räcker.</span></div><div class="cell"><b>Informationen</b><span>Vad behöver den få se? Tidigare exempel, mallar, riktlinjer, data.</span></div><div class="cell"><b>Typen av lösning</b><span>En assistent, en kunskapsbank eller ett återkommande flöde?</span></div><div class="cell"><b>Framgång</b><span>Hur vet du att den gör nytta?</span></div></div>
+<p>Exempel: en ansökningsassistent för en frilansande producent. Problemet: varje ansökan börjar från noll. Informationen: tre tidigare beviljade ansökningar, CV, finansiärens riktlinjer. Typ: en assistent med kunskapsbank. Framgång: första utkastet tar en timme i stället för en dag.</p>
+<p>Vi avslutar med att presentera idéerna för varandra och ge feedback, och går igenom hemuppgiften.</p></article>
+</section>
+
+<!-- ===================== MELLAN ===================== -->
+<section id="sec-mellan" role="tabpanel" hidden>
+<h2><span class="badge tv"></span>Mellan tillfällena · 28 nov till 8 dec</h2>
+<p class="lede">Ju bättre material du har med dig 9 december, desto bättre blir din assistent. <strong>Det här är hemuppgiften.</strong></p>
+<article class="card mel"><p class="typ">Hemuppgift</p><h3>Samla och testa</h3>
+<ol class="plain">
+<li><strong>Samla 3–5 dokument</strong> som visar hur uppgiften görs i dag: tidigare ansökningar, mallar, riktlinjer, tonalitetsguide, rapporter eller bra exempel. Bara sådant du får dela med ett AI-verktyg. Får du inte använda verkligt material? Anonymisera det, eller be AI ta fram fiktiva exempel som liknar dina. Du kan också öva med det färdiga <a href="#ovning" data-go="ovning">övningsmaterialet</a>.</li>
+<li><strong>Skriv ner med egna ord</strong> hur uppgiften går till, steg för steg, och hur ett riktigt bra resultat ser ut.</li>
+<li><strong>Testa uppgiften i verktyget</strong> minst en gång. Anteckna vad som funkade och vad som skavde.</li>
+<li><strong>Bolla idén</strong> med en kollega eller någon i din bransch om du har möjlighet.</li>
+</ol></article>
+<article class="card mel"><p class="typ">Digital handledning <span>fredag 4 december kl 10–11</span></p><h3>Öppen frågestund på Zoom</h3>
+<p>Hoppa in när du vill under timmen och ställ dina frågor. Har du kört fast, vill ha feedback på din idé eller undrar hur du strukturerar ditt material? Det här är rätt tillfälle.</p>
+<a class="cta" href="#ZOOM-LANK" id="zoom">Gå med i Zoom-mötet</a></article>
+</section>
+
+<!-- ===================== TILLFÄLLE 2 ===================== -->
+<section id="sec-t2" role="tabpanel" hidden>
+<h2><span class="badge"></span>Tillfälle 2 · Bygg din egen AI-assistent</h2>
+<p class="lede">Onsdag 9 december kl 09.00–12.30. Ta med materialet du samlat. Målet är att alla går hem med en första fungerande version.</p>
+<div class="tw"><table>
+<thead><tr><th>Tid</th><th>Block</th><th class="d"></th></tr></thead>
+<tbody>
+<tr><td class="t">08.30–09.00</td><td>Kaffe och uppladdning av material</td><td class="d">30 min</td></tr>
+<tr><td class="t">09.00–09.20</td><td>Uppvärmning och läget sedan sist</td><td class="d">20 min</td></tr>
+<tr><td class="t">09.20–09.50</td><td>Från chatt till lösning</td><td class="d">30 min</td></tr>
+<tr><td class="t">09.50–10.30</td><td>Bygg din lösning, del 1</td><td class="d">40 min</td></tr>
+<tr class="paus"><td class="t">10.30–10.50</td><td>Fika</td><td class="d">20 min</td></tr>
+<tr><td class="t">10.50–11.45</td><td>Bygg din lösning, del 2</td><td class="d">55 min</td></tr>
+<tr><td class="t">11.45–12.30</td><td>Demo, feedback och nästa steg</td><td class="d">45 min</td></tr>
+</tbody></table></div>
+
+<article class="card"><p class="typ">Punkt 0 <span>20 min</span></p><h3>Två sanningar och en AI</h3>
+<p>Be ditt AI-verktyg hitta på en trovärdig lögn om dig. Berätta den för bordet tillsammans med två sanna saker, och låt de andra gissa. Sedan: vad har du jobbat med sedan sist, vad funkade, vad skavde och vad vill du utveckla?</p></article>
+
+<article class="card"><p class="typ">Punkt 1 · demo <span>30 min</span></p><h3>Från chatt till lösning</h3>
+<p>Hur du bygger något som går att återanvända i stället för att börja om i varje chatt: assistenter, kunskapsbanker, projekt, research- och analysflöden och enklare agenter. Paulina bygger ett exempel från kultur-, musik- och mediebranschen live, steg för steg. Följ med i guiden under fliken <a href="#bygg" data-go="bygg">Bygg din assistent</a>.</p></article>
+
+<article class="card"><p class="typ">Punkt 2 · workshop <span>40 min</span></p><h3>Bygg din lösning, del 1</h3>
+<p>Ladda upp ditt material och skriv dina instruktioner. Utgå från mallen i guiden. Paulina går runt och coachar.</p>
+<div class="q"><small>Exempel på vad andra bygger</small>Ansökningsassistent, kommunikationsassistent, omvärldsbevakare, produktionsassistent, kunskapsbank för organisationen eller stöd för publikanalys.</div></article>
+
+<article class="card"><p class="typ">Punkt 3 · workshop <span>55 min</span></p><h3>Bygg din lösning, del 2</h3>
+<p>Testa på tre riktiga fall från din vardag. Byt sedan dator med bordsgrannen och låt den personen testa din assistent. Vad blir fel med otydliga instruktioner eller ofullständigt underlag? Justera och testa igen.</p></article>
+
+<article class="card"><p class="typ">Punkt 4 <span>45 min</span></p><h3>Demo, feedback och nästa steg</h3>
+<p>Visa vad du byggt, vilken nytta det kan skapa och hur du ska använda det i vardagen. Vi avslutar med en enkel handlingsplan.</p>
+<div class="q"><small>Avslutande fråga</small>Vilka tre saker gör du med din assistent den närmaste månaden?</div></article>
+</section>
+
+<!-- ===================== BYGG ===================== -->
+<section id="sec-bygg" role="tabpanel" hidden>
+<h2><span class="badge nl"></span>Bygg din assistent, steg för steg</h2>
+<p class="lede">Samma principer fungerar i alla tre verktygen: en <strong>instruktion</strong> som beskriver uppdraget, en <strong>kunskapsbank</strong> med ditt eget material och <strong>exempel</strong> på hur ett bra resultat ser ut. Välj ditt verktyg.</p>
+<div class="seg" role="group" aria-label="Välj verktyg" id="toolSeg">
+<button data-tool="claude" aria-pressed="true">Claude</button>
+<button data-tool="chatgpt" aria-pressed="false">ChatGPT</button>
+<button data-tool="copilot" aria-pressed="false">Microsoft Copilot</button>
+</div>
+
+<div class="steps" data-panel="claude">
+<div class="step"><span class="no">01</span><div><p class="t">Öppna Claude</p><p class="d">Logga in på <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> eller i Claude-appen med ditt Pro-konto.</p></div></div>
+<div class="step"><span class="no">02</span><div><p class="t">Skapa ett Project</p><p class="d">Klicka på "Projects" i vänstermenyn och sedan "Create project". Döp det efter din assistent, t ex "Ansökningsassistenten".</p></div></div>
+<div class="step"><span class="no">03</span><div><p class="t">Fyll kunskapsbanken</p><p class="d">Lägg till dina dokument under projektets kunskap (project knowledge): tidigare exempel, mallar, riktlinjer.</p></div></div>
+<div class="step"><span class="no">04</span><div><p class="t">Skriv instruktionerna</p><p class="d">Klicka på "Set project instructions" och klistra in din instruktion. Utgå från mallen nedan.</p></div></div>
+<div class="step"><span class="no">05</span><div><p class="t">Testa och förbättra</p><p class="d">Varje ny chatt i projektet har tillgång till instruktionen och dokumenten. Testa med ett enkelt fall, sedan ett svårare. Justera instruktionen när något blir fel.</p></div></div>
+</div>
+
+<div class="steps" data-panel="chatgpt" hidden>
+<div class="step"><span class="no">01</span><div><p class="t">Öppna ChatGPT</p><p class="d">Logga in på <a href="https://chatgpt.com" target="_blank" rel="noopener">chatgpt.com</a> eller i appen med ditt Plus-konto.</p></div></div>
+<div class="step"><span class="no">02</span><div><p class="t">Skapa ett Project eller en egen GPT</p><p class="d">Ett Project samlar chattar, filer och instruktioner för ditt eget arbete. En egen GPT ("Explore GPTs" och sedan "Create") passar om du vill dela assistenten med kollegor.</p></div></div>
+<div class="step"><span class="no">03</span><div><p class="t">Ladda upp underlag</p><p class="d">Lägg till dina dokument som filer i projektet, eller som kunskap (Knowledge) i din GPT.</p></div></div>
+<div class="step"><span class="no">04</span><div><p class="t">Skriv instruktionerna</p><p class="d">Klistra in din instruktion i projektets instruktioner eller i GPT:ns fält för instruktioner. Utgå från mallen nedan.</p></div></div>
+<div class="step"><span class="no">05</span><div><p class="t">Testa och förbättra</p><p class="d">Börja med ett enkelt fall, sedan ett svårare. Justera instruktionen när något blir fel.</p></div></div>
+</div>
+
+<div class="steps" data-panel="copilot" hidden>
+<div class="step"><span class="no">01</span><div><p class="t">Kontrollera din tillgång</p><p class="d">Copilot ingår i vissa Microsoft 365-licenser. Kolla med din IT-ansvarige vad du har tillgång till, via <a href="https://copilot.microsoft.com" target="_blank" rel="noopener">copilot.microsoft.com</a> eller direkt i Word och Teams.</p></div></div>
+<div class="step"><span class="no">02</span><div><p class="t">Skapa en agent, eller öppna en ny chatt</p><p class="d">Har du Agent Builder kan du skapa en egen agent med instruktioner och kunskap. Annars startar du en ny konversation i Copilot-chatten.</p></div></div>
+<div class="step"><span class="no">03</span><div><p class="t">Ladda upp underlag</p><p class="d">Lägg till dokument som kunskap i agenten, eller dra in dem i chatten. Vissa versioner begränsar antalet filer.</p></div></div>
+<div class="step"><span class="no">04</span><div><p class="t">Skriv instruktionerna</p><p class="d">Klistra in din instruktion i agentens instruktionsfält, eller inled chatten med den. Utgå från mallen nedan.</p></div></div>
+<div class="step"><span class="no">05</span><div><p class="t">Testa och förbättra</p><p class="d">Börja med ett enkelt fall, sedan ett svårare. Justera instruktionen när något blir fel.</p></div></div>
+<div class="note"><strong>Fördel med Copilot:</strong> använder din organisation redan Microsoft 365 stannar materialet i samma miljö som Teams, Outlook, Word och Excel, vilket kan förenkla GDPR-frågorna.</div>
+</div>
+
+<h2><span class="badge nl"></span>Mall för instruktionen</h2>
+<p class="lede">Byt ut texten inom hakparentes. Raden om att fråga i stället för att gissa är värd att ha med oavsett vad du bygger.</p>
+<div class="prompt"><span class="lab">Mall</span><button class="copy">Kopiera</button><span class="ptxt">Du är min assistent för [uppgiften du valt]. Jag jobbar som [din roll] på/i [verksamhet eller frilans].
+
+Ditt uppdrag: [vad assistenten ska leverera, t ex första utkast, sammanfattningar, förslag].
+
+Använd alltid dokumenten i kunskapsbanken: [vilka dokument och vad de visar]. Följ tonen och strukturen i de bästa exemplen.
+
+Ett bra resultat är [längd, format, ton, mottagare].
+
+Gör aldrig [det assistenten ska låta bli, t ex hitta på siffror eller citat, skicka något vidare].
+
+Fråga i stället för att gissa om något är oklart eller saknas.</span></div>
+
+<h2><span class="badge nl"></span>Exempel: Ansökningsassistenten</h2>
+<p class="lede">Det här exemplet bygger vi live på tillfälle 2. Testa gärna själv med det fiktiva <a href="#ovning" data-go="ovning">övningsmaterialet</a>.</p>
+<div class="prompt"><span class="lab">Instruktion att kopiera</span><button class="copy">Kopiera</button><span class="ptxt">Du är min ansökningsassistent. Jag är frilansande producent inom scenkonst och söker projektstöd från kulturfonder och regioner.
+
+När jag beskriver ett nytt projekt ska du:
+1) läsa mina tidigare beviljade ansökningar och mitt CV i kunskapsbanken,
+2) läsa finansiärens riktlinjer och bedömningskriterier,
+3) skriva ett första utkast som följer finansiärens rubriker och teckenbegränsningar,
+4) lista vad som saknas för att ansökan ska bli stark.
+
+Skriv i min ton, så som den låter i de tidigare ansökningarna. Hitta aldrig på siffror, namn på samarbetspartners eller referenser. Markera i stället med [FYLL I]. Fråga i stället för att gissa om något är oklart.</span></div>
+
+<h2><span class="badge nl"></span>Frågor att testa</h2>
+<p class="lede">Börja enkelt och bygg vidare. Byt ut detaljerna mot din egen verksamhet.</p>
+<details open><summary>Ansökningar och rapportering</summary><div class="body"><ul class="qs">
+<li>"Här är riktlinjerna för stödet. Vilka av mina tidigare projekt passar bäst, och varför?"<button>Kopiera</button></li>
+<li>"Skriv ett första utkast till projektbeskrivningen, max 2 000 tecken, utifrån anteckningarna nedan."<button>Kopiera</button></li>
+<li>"Granska utkastet som en kritisk bedömare. Vad är svagast, och hur stärker jag det?"<button>Kopiera</button></li>
+<li>"Gör om slutrapporten till en kort sammanfattning för styrelsen."<button>Kopiera</button></li>
+</ul></div></details>
+<details><summary>Kommunikation och marknadsföring</summary><div class="body"><ul class="qs">
+<li>"Skriv ett pressutskick om premiären utifrån programtexten. Följ tonen i våra tidigare pressutskick."<button>Kopiera</button></li>
+<li>"Gör tre versioner av inlägget: en för Instagram, en för LinkedIn och en för nyhetsbrevet."<button>Kopiera</button></li>
+<li>"Föreslå fem rubriker till programbladet, från lekfull till allvarlig."<button>Kopiera</button></li>
+</ul></div></details>
+<details><summary>Publik, omvärld och trender</summary><div class="body"><ul class="qs">
+<li>"Sammanfatta publikenkäten. Vad säger publiken återkommande, och vad överraskar?"<button>Kopiera</button></li>
+<li>"Vilka publikgrupper når vi inte i dag, och vad skulle kunna locka dem?"<button>Kopiera</button></li>
+<li>"Sammanfatta de här artiklarna om branschen och lista vad som är relevant för oss."<button>Kopiera</button></li>
+</ul></div></details>
+<details><summary>Produktion och planering</summary><div class="body"><ul class="qs">
+<li>"Gör en produktionsplan baklänges från premiärdatum, med alla moment i dokumenten."<button>Kopiera</button></li>
+<li>"Skriv ett mejl till de medverkande med tider och praktisk info utifrån körschemat."<button>Kopiera</button></li>
+<li>"Vilka risker ser du i tidplanen, och vad bör jag dubbelkolla?"<button>Kopiera</button></li>
+</ul></div></details>
+<details><summary>Kunskapsbank för organisationen</summary><div class="body"><ul class="qs">
+<li>"Hur gjorde vi senast vi turnerade, enligt dokumenten? Sammanfatta i punktform."<button>Kopiera</button></li>
+<li>"Skriv en introduktion för en nyanställd utifrån våra rutiner och riktlinjer."<button>Kopiera</button></li>
+</ul></div></details>
+<details><summary>Kritiskt tänkande</summary><div class="body"><ul class="qs">
+<li>"Vilka av dina svar bygger på dokumenten, och vilka är dina egna antaganden?"<button>Kopiera</button></li>
+<li>"Vad i det här utkastet kan uppfattas som generiskt eller AI-skrivet? Föreslå hur det blir mer personligt."<button>Kopiera</button></li>
+<li>"Granska mina instruktioner. Finns det något otydligt, eller något känsligt som inte borde vara med?"<button>Kopiera</button></li>
+</ul></div></details>
+
+<div class="warnbox"><strong>Ditt material, dina rättigheter.</strong> Ladda aldrig upp känsliga personuppgifter (personnummer, löner, hälsouppgifter) eller material du inte har rätt att dela, t ex andras manus, musik eller bilder. Anonymisera hellre. Kolla också verktygets inställningar för om ditt material får användas för att träna modellen: i ChatGPT under Data controls, i Claude under Privacy.</div>
+</section>
+
+<!-- ===================== ÖVNINGSMATERIAL ===================== -->
+<section id="sec-ovning" role="tabpanel" hidden>
+<h2><span class="badge nl"></span>Övningsmaterial · Kollektivet Fyrljus</h2>
+<p class="lede">Använd materialet om du vill öva innan du tar dig an ditt eget, eller om du inte får dela verkliga dokument med ett AI-verktyg. <strong>Allt är påhittat:</strong> kollektivet, fonden, personerna, scenerna och siffrorna. Kollektivet Fyrljus är ett litet scenkonstkollektiv i Skåne som turnerade med dans- och musikföreställningen "Ljuset vi delar" hösten 2026 och nu planerar nästa projekt, "Havet minns".</p>
+<a class="cta" href="fyrljus_ovningsmaterial.zip" download>Ladda ner allt (zip)</a>
+<div class="files">
+<a class="file" href="material/publikdata_turne_2026.csv" download><i>Siffror · CSV</i><b>Publikdata</b><span>Biljetter, platser och priser för tolv föreställningar</span></a>
+<a class="file" href="material/budget_och_utfall_turne_2026.csv" download><i>Siffror · CSV</i><b>Budget och utfall</b><span>Turnéns budget mot vad det faktiskt blev</span></a>
+<a class="file" href="material/publikenkat_svar_2026.txt" download><i>Text</i><b>Publikenkät</b><span>24 fritextsvar från publiken</span></a>
+<a class="file" href="material/tidigare_ansokan_beviljad_2025.txt" download><i>Text</i><b>Tidigare ansökan</b><span>En beviljad ansökan att lära av</span></a>
+<a class="file" href="material/riktlinjer_kulturfonden_syd.txt" download><i>Text</i><b>Fondens riktlinjer</b><span>Rubriker, teckengränser och bedömningskriterier</span></a>
+<a class="file" href="material/anteckningar_nytt_projekt_havet_minns.txt" download><i>Text</i><b>Mötesanteckningar</b><span>Röriga anteckningar om nästa projekt</span></a>
+<a class="file" href="material/tonalitet_och_tidigare_pressmeddelande.txt" download><i>Text</i><b>Tonalitet och pressmeddelande</b><span>Hur Fyrljus låter, plus ett tidigare utskick</span></a>
+</div>
+
+<h2><span class="badge nl"></span>Övningar med färdiga prompter</h2>
+<p class="lede">Starta ett nytt projekt eller en ny chatt, ladda upp filerna som står under varje övning och klistra in prompten. <strong>Granska alltid svaret.</strong> Be verktyget visa hur det räknat, och kontrollera minst en siffra själv.</p>
+
+<article class="card ex"><p class="typ">Övning 1 · analys av siffror</p><h3>Hur gick turnén egentligen?</h3>
+<div class="up"><span class="lab">Ladda upp:</span><span class="chip">publikdata_turne_2026.csv</span><span class="chip">budget_och_utfall_turne_2026.csv</span></div>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Analysera publikdatan. Räkna ut beläggning i procent och biljettintäkt per föreställning och per ort. Vilka mönster ser du, t ex kring veckodag, ort och marknadsföring? Visa resultatet i en tabell och ett enkelt diagram.</span></div>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Jämför budget och utfall. Vilka poster avviker mest, och hur stort blev resultatet totalt? Skriv en förklaring till styrelsen på högst 150 ord, i klarspråk.</span></div>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Vilka tre orter och vilka veckodagar bör vi prioritera på nästa turné? Motivera med siffrorna och säg tydligt vad som är osäkert.</span></div>
+<details class="facit"><summary>Facit att kontrollera mot</summary><div class="body">1 565 sålda biljetter av 2 060 platser, vilket ger en beläggning på 76 procent. Biljettintäkterna blev 361 490 kr mot budgeterade 380 000 kr. Totalt gick turnén med 39 210 kr i underskott.</div></details></article>
+
+<article class="card ex"><p class="typ">Övning 2 · publikens röster</p><h3>Vad säger publiken?</h3>
+<div class="up"><span class="lab">Ladda upp:</span><span class="chip">publikenkat_svar_2026.txt</span><span class="chip">publikdata_turne_2026.csv</span></div>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Sammanfatta publikenkäten i fem teman. Ange hur många svar som tar upp varje tema och citera ett typiskt svar per tema.</span></div>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Vilka tre förändringar skulle göra störst skillnad för publiken på nästa turné? Koppla dem till publikdatan där det går.</span></div></article>
+
+<article class="card ex"><p class="typ">Övning 3 · kommunikation</p><h3>Berätta om nästa projekt</h3>
+<div class="up"><span class="lab">Ladda upp:</span><span class="chip">tonalitet_och_tidigare_pressmeddelande.txt</span><span class="chip">anteckningar_nytt_projekt_havet_minns.txt</span></div>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Skriv ett pressmeddelande om att vi börjar samla berättelser till vårt nya projekt "Havet minns". Vi söker personer som har bott vid havet länge och vill berätta. Följ vår tonalitetsguide.</span></div>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Gör tre Instagram-inlägg av pressmeddelandet: ett som väcker nyfikenhet, ett som efterlyser berättelser och ett som visar arbetet bakom kulisserna.</span></div>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Skriv ett kort och vänligt mejl till hembygdsföreningar i Skanör, Ystad och Simrishamn där vi ber om hjälp att hitta personer att intervjua.</span></div></article>
+
+<article class="card ex"><p class="typ">Övning 4 · ansökan</p><h3>Sök pengar till "Havet minns"</h3>
+<div class="up"><span class="lab">Ladda upp:</span><span class="chip">tidigare_ansokan_beviljad_2025.txt</span><span class="chip">riktlinjer_kulturfonden_syd.txt</span><span class="chip">anteckningar_nytt_projekt_havet_minns.txt</span><span class="chip">publikdata_turne_2026.csv</span><span class="chip">publikenkat_svar_2026.txt</span></div>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Skriv ett första utkast till en ansökan om projektstöd för "Havet minns" till Kulturfonden Syd. Följ rubrikerna och teckengränserna i riktlinjerna, och skriv i samma ton som vår tidigare beviljade ansökan. Använd lärdomarna från publikdatan och enkäten. Hitta inte på något: markera det som saknas med [FYLL I].</span></div>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Granska utkastet som en kritisk bedömare i fonden. Betygsätt varje bedömningskriterium från 1 till 5 och föreslå hur den svagaste delen kan stärkas.</span></div></article>
+
+<article class="card ex"><p class="typ">Övning 5 · rapportering</p><h3>Slutrapport till finansiären</h3>
+<div class="up"><span class="lab">Ladda upp:</span><span class="chip">publikdata_turne_2026.csv</span><span class="chip">budget_och_utfall_turne_2026.csv</span><span class="chip">publikenkat_svar_2026.txt</span><span class="chip">riktlinjer_kulturfonden_syd.txt</span></div>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Skriv en slutrapport till Kulturfonden Syd för "Ljuset vi delar", enligt kraven i riktlinjerna: publiksiffror, ekonomisk redovisning och en kort reflektion. Högst en A4-sida. Var ärlig om det som inte gick som planerat.</span></div></article>
+
+<article class="card ex"><p class="typ">Övning 6 · planering</p><h3>Från röriga anteckningar till plan</h3>
+<div class="up"><span class="lab">Ladda upp:</span><span class="chip">anteckningar_nytt_projekt_havet_minns.txt</span><span class="chip">riktlinjer_kulturfonden_syd.txt</span></div>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Gör en produktionsplan för "Havet minns" baklänges från premiär i september 2027. Ta med ansökningsdeadline 15 februari 2027. Lista vad som måste vara klart när, och vem som ansvarar enligt anteckningarna.</span></div>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Vilka öppna frågor och risker i anteckningarna behöver vi lösa först? Ordna dem efter hur bråttom de är.</span></div></article>
+
+<article class="card ex"><p class="typ">Övning 7 · bygg en assistent</p><h3>Fyrljus egen assistent</h3>
+<p>Ladda upp alla filer i ett Project (Claude), ett Project eller en GPT (ChatGPT) eller en agent (Copilot), och lägg in instruktionen nedan. Testa sedan med frågorna från övning 1–6. Se <a href="#bygg" data-go="bygg">Bygg din assistent</a> för steg för steg.</p>
+<div class="up"><span class="lab">Ladda upp:</span><span class="chip">Alla filer</span></div>
+<div class="prompt"><span class="lab">Instruktion att kopiera</span><button class="copy">Kopiera</button><span class="ptxt">Du är kommunikations- och ansökningsassistent för Kollektivet Fyrljus, ett litet scenkonstkollektiv i Skåne. Använd alltid dokumenten i kunskapsbanken: publikdata, budget, publikenkät, tidigare ansökan, fondens riktlinjer, mötesanteckningar och tonalitetsguiden.
+
+Du hjälper oss att skriva texter, analysera siffror och planera projekt. Skriv alltid enligt tonalitetsguiden. Visa hur du räknar när du använder siffror. Hitta aldrig på namn, siffror eller citat, markera i stället med [FYLL I]. Fråga i stället för att gissa om något är oklart.</span></div></article>
+</section>
+
+<footer>
+<span><b>We Should Be Friends AB</b></span>
+<span>Kurs framtagen för Media Evolution, hösten 2026. Kursledare <a href="https://pauspling.com" target="_blank" rel="noopener">Paulina Modlitba</a>.</span>
+<span>Kursen finansieras av Europeiska socialfonden.</span>
+</footer>
+</div>
+
+<script>
+(function(){
+  var store={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+  // flikar
+  var tabs=[].slice.call(document.querySelectorAll('.tabs [role=tab]'));
+  var panels={};tabs.forEach(function(b){panels[b.dataset.tab]=document.getElementById('sec-'+b.dataset.tab)});
+  function show(id,push){
+    if(!panels[id])id='forbered';
+    tabs.forEach(function(b){var on=b.dataset.tab===id;b.setAttribute('aria-selected',on);panels[b.dataset.tab].hidden=!on});
+    if(push){try{history.replaceState(null,'','#'+id)}catch(e){}}
+  }
+  tabs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.tab,true);document.querySelector('.tabs').scrollIntoView({behavior:'smooth'})})});
+  document.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();show(a.dataset.go,true);document.querySelector('.tabs').scrollIntoView({behavior:'smooth'})})});
+  show((location.hash||'').slice(1),false);
+  window.addEventListener('hashchange',function(){show(location.hash.slice(1),false)});
+
+  // checklista
+  var boxes=[].slice.call(document.querySelectorAll('#check input'));
+  function count(){var n=boxes.filter(function(b){return b.checked}).length;document.getElementById('ckCount').textContent=n+' av '+boxes.length+' klara'}
+  boxes.forEach(function(b){
+    b.checked=store.get('me-ck-'+b.dataset.k)==='1';b.closest('.ci').classList.toggle('done',b.checked);
+    b.addEventListener('change',function(){store.set('me-ck-'+b.dataset.k,b.checked?'1':'0');b.closest('.ci').classList.toggle('done',b.checked);count()});
+  });count();
+
+  // verktyg
+  var seg=[].slice.call(document.querySelectorAll('#toolSeg button'));
+  function tool(t){seg.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.tool===t)});
+    document.querySelectorAll('[data-panel]').forEach(function(p){p.hidden=p.dataset.panel!==t});store.set('me-tool',t)}
+  seg.forEach(function(b){b.addEventListener('click',function(){tool(b.dataset.tool)})});
+  tool(store.get('me-tool')||'claude');
+
+  // kopiera
+  function copy(text,btn,label){
+    function done(){btn.textContent='Kopierat';btn.classList.add('ok');setTimeout(function(){btn.textContent=label;btn.classList.remove('ok')},1600)}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,fallback)}else fallback();
+    function fallback(){var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(ta)}
+  }
+  document.querySelectorAll('.prompt .copy').forEach(function(b){b.addEventListener('click',function(){copy(b.parentNode.querySelector('.ptxt').textContent,b,'Kopiera')})});
+  document.querySelectorAll('.qs li button').forEach(function(b){b.addEventListener('click',function(){var t=b.parentNode.firstChild.textContent.trim().replace(/^"|"$/g,'');copy(t,b,'Kopiera')})});
+})();
+</script>
+</body>
+</html>

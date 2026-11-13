@@ -1,0 +1,17 @@
+ÖVNINGSMATERIAL – Praktisk AI för kreativa verksamheter
+Media Evolution, hösten 2026. Kursledare Paulina Modlitba.
+
+Allt i den här mappen är PÅHITTAT. Kollektivet Fyrljus, Kulturfonden Syd, personerna, scenerna och siffrorna finns inte på riktigt. Materialet är fritt att ladda upp i valfritt AI-verktyg.
+
+Kollektivet Fyrljus är ett litet scenkonstkollektiv i Skåne som turnerade med dans- och musikföreställningen "Ljuset vi delar" hösten 2026 och nu planerar nästa projekt, "Havet minns".
+
+Filerna
+1. publikdata_turne_2026.csv – sålda biljetter, platser och priser för tolv föreställningar
+2. budget_och_utfall_turne_2026.csv – budget mot utfall för turnén
+3. publikenkat_svar_2026.txt – 24 fritextsvar från publiken
+4. tidigare_ansokan_beviljad_2025.txt – en beviljad ansökan att lära av
+5. riktlinjer_kulturfonden_syd.txt – riktlinjer och bedömningskriterier för en fond
+6. anteckningar_nytt_projekt_havet_minns.txt – röriga mötesanteckningar om nästa projekt
+7. tonalitet_och_tidigare_pressmeddelande.txt – hur Fyrljus låter, plus ett tidigare pressmeddelande
+
+Prompter till varje övning finns på kurssajten under fliken Övningsmaterial.

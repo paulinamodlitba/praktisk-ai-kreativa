@@ -1,0 +1,14 @@
+typ,post,budget_kr,utfall_kr,kommentar
+Intäkt,Biljettintäkter,380000,361490,Se publikdata
+Intäkt,Region Skåne (verksamhetsbidrag),400000,400000,
+Intäkt,Kulturrådet (projektbidrag),300000,300000,
+Intäkt,Kulturfonden Syd (fiktiv fond),150000,150000,
+Intäkt,Kommunala gästspelsbidrag,60000,45000,Eslöv och Trelleborg betalade lägre arvode än offererat
+Kostnad,Arvoden dansare och musiker,700000,721500,Extraföreställning i Ystad
+Kostnad,Teknik och ljus,140000,171500,Hyrd ljusrigg för två scener som saknade egen
+Kostnad,Resor och logi,95000,112300,Bilhyra dyrare än beräknat
+Kostnad,Lokalhyra repetitioner,80000,80000,
+Kostnad,Marknadsföring,70000,52400,Mindre annonsering och mer egna sociala kanaler
+Kostnad,Scenografi och kostym,110000,96800,
+Kostnad,Administration,60000,61200,
+Kostnad,Oförutsett,35000,0,
