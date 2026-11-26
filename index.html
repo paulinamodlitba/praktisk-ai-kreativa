@@ -416,38 +416,95 @@ Skriv i min ton, så som den låter i de tidigare ansökningarna. Hitta aldrig p
 
 <h2><span class="badge nl"></span>Övningar med färdiga prompter</h2>
 <p class="lede">Starta ett nytt projekt eller en ny chatt, ladda upp filerna som står under varje övning och klistra in prompten. <strong>Granska alltid svaret.</strong> Be verktyget visa hur det räknat, och kontrollera minst en siffra själv.</p>
+<p class="lede">Den första prompten i varje övning följer samma mönster: <strong>roll, underlag, uppgift, format och begränsningar</strong>. Följdprompterna skriver du i samma chatt, så att verktyget minns sammanhanget.</p>
 
 <article class="card ex"><p class="typ">Övning 1 · analys av siffror</p><h3>Hur gick turnén egentligen?</h3>
 <div class="up"><span class="lab">Ladda upp:</span><span class="chip">publikdata_turne_2026.csv</span><span class="chip">budget_och_utfall_turne_2026.csv</span></div>
-<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Analysera publikdatan. Räkna ut beläggning i procent och biljettintäkt per föreställning och per ort. Vilka mönster ser du, t ex kring veckodag, ort och marknadsföring? Visa resultatet i en tabell och ett enkelt diagram.</span></div>
-<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Jämför budget och utfall. Vilka poster avviker mest, och hur stort blev resultatet totalt? Skriv en förklaring till styrelsen på högst 150 ord, i klarspråk.</span></div>
-<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Vilka tre orter och vilka veckodagar bör vi prioritera på nästa turné? Motivera med siffrorna och säg tydligt vad som är osäkert.</span></div>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Du är en noggrann dataanalytiker som hjälper ett litet scenkonstkollektiv att förstå sin publik. Jag har laddat upp publikdata från vår turné med "Ljuset vi delar" hösten 2026: datum, veckodag, ort, platser, sålda biljetter, fribiljetter, snittpris och andel köp via webben.
+
+Uppgift:
+1. Räkna ut beläggning i procent och biljettintäkt per föreställning och per ort.
+2. Leta efter mönster, t ex kring veckodag, ort, pris och hur publiken köpte biljetter.
+3. Sammanfatta de tre viktigaste insikterna.
+
+Format: en tabell med en rad per föreställning, ett enkelt stapeldiagram över beläggning per ort och insikterna i punktform.
+
+Visa hur du räknar så att jag kan kontrollera siffrorna. Säg till om något i datan är oklart, så gissar du inte.</span></div>
+<div class="prompt"><span class="lab">Följdprompt, i samma chatt</span><button class="copy">Kopiera</button><span class="ptxt">Jämför nu budget och utfall i budget_och_utfall_turne_2026.csv. Vilka poster avviker mest, och hur stort blev resultatet totalt?
+
+Skriv sedan en förklaring till styrelsen på högst 150 ord. Styrelsen är ideell och inte van vid ekonomiska rapporter, så skriv i klarspråk och börja med det viktigaste.</span></div>
+<div class="prompt"><span class="lab">Följdprompt, i samma chatt</span><button class="copy">Kopiera</button><span class="ptxt">Vilka tre orter och vilka veckodagar bör vi prioritera på nästa turné? Motivera med siffrorna och säg tydligt vad som är osäkert.</span></div>
 <details class="facit"><summary>Facit att kontrollera mot</summary><div class="body">1 565 sålda biljetter av 2 060 platser, vilket ger en beläggning på 76 procent. Biljettintäkterna blev 361 490 kr mot budgeterade 380 000 kr. Totalt gick turnén med 39 210 kr i underskott.</div></details></article>
 
 <article class="card ex"><p class="typ">Övning 2 · publikens röster</p><h3>Vad säger publiken?</h3>
 <div class="up"><span class="lab">Ladda upp:</span><span class="chip">publikenkat_svar_2026.txt</span><span class="chip">publikdata_turne_2026.csv</span></div>
-<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Sammanfatta publikenkäten i fem teman. Ange hur många svar som tar upp varje tema och citera ett typiskt svar per tema.</span></div>
-<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Vilka tre förändringar skulle göra störst skillnad för publiken på nästa turné? Koppla dem till publikdatan där det går.</span></div></article>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Du hjälper ett litet scenkonstkollektiv att förstå vad publiken tyckte om föreställningen "Ljuset vi delar". Jag har laddat upp 24 fritextsvar från vår publikenkät och publikdatan från turnén.
+
+Uppgift:
+1. Sortera svaren i fem teman.
+2. Ange hur många svar som tar upp varje tema.
+3. Citera ett typiskt svar per tema, ordagrant ur filen.
+
+Format: en tabell med kolumnerna Tema, Antal svar och Typiskt citat, följt av två meningar om vad som sticker ut mest.
+
+Använd bara citat som finns i filen.</span></div>
+<div class="prompt"><span class="lab">Följdprompt, i samma chatt</span><button class="copy">Kopiera</button><span class="ptxt">Vilka tre förändringar skulle göra störst skillnad för publiken på nästa turné? Koppla dem till publikdatan där det går.</span></div></article>
 
 <article class="card ex"><p class="typ">Övning 3 · kommunikation</p><h3>Berätta om nästa projekt</h3>
 <div class="up"><span class="lab">Ladda upp:</span><span class="chip">tonalitet_och_tidigare_pressmeddelande.txt</span><span class="chip">anteckningar_nytt_projekt_havet_minns.txt</span></div>
-<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Skriv ett pressmeddelande om att vi börjar samla berättelser till vårt nya projekt "Havet minns". Vi söker personer som har bott vid havet länge och vill berätta. Följ vår tonalitetsguide.</span></div>
-<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Gör tre Instagram-inlägg av pressmeddelandet: ett som väcker nyfikenhet, ett som efterlyser berättelser och ett som visar arbetet bakom kulisserna.</span></div>
-<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Skriv ett kort och vänligt mejl till hembygdsföreningar i Skanör, Ystad och Simrishamn där vi ber om hjälp att hitta personer att intervjua.</span></div></article>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Du är kommunikatör för Kollektivet Fyrljus, ett litet scenkonstkollektiv i Skåne. Jag har laddat upp vår tonalitetsguide med ett tidigare pressmeddelande, och anteckningar från planeringsmötet om vårt nästa projekt "Havet minns".
+
+Uppgift: skriv ett pressmeddelande om att vi börjar samla berättelser till "Havet minns". Vi söker personer som har bott vid havet länge och vill berätta om hur livet vid kusten har förändrats.
+
+Mottagare: lokala tidningar och radio i Skåne.
+Format: rubrik, ingress på två meningar, brödtext på högst 250 ord, ett citat från koreografen Sara och en tydlig uppmaning om hur man anmäler sig.
+Ton: följ tonalitetsguiden och utgå från hur det tidigare pressmeddelandet låter.
+
+Markera kontaktuppgifter och annat som saknas med [FYLL I].</span></div>
+<div class="prompt"><span class="lab">Följdprompt, i samma chatt</span><button class="copy">Kopiera</button><span class="ptxt">Gör tre Instagram-inlägg av pressmeddelandet: ett som väcker nyfikenhet, ett som efterlyser berättelser och ett som visar arbetet bakom kulisserna.</span></div>
+<div class="prompt"><span class="lab">Följdprompt, i samma chatt</span><button class="copy">Kopiera</button><span class="ptxt">Skriv ett kort och vänligt mejl till hembygdsföreningar i Skanör, Ystad och Simrishamn där vi ber om hjälp att hitta personer att intervjua.</span></div></article>
 
 <article class="card ex"><p class="typ">Övning 4 · ansökan</p><h3>Sök pengar till "Havet minns"</h3>
 <div class="up"><span class="lab">Ladda upp:</span><span class="chip">tidigare_ansokan_beviljad_2025.txt</span><span class="chip">riktlinjer_kulturfonden_syd.txt</span><span class="chip">anteckningar_nytt_projekt_havet_minns.txt</span><span class="chip">publikdata_turne_2026.csv</span><span class="chip">publikenkat_svar_2026.txt</span></div>
-<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Skriv ett första utkast till en ansökan om projektstöd för "Havet minns" till Kulturfonden Syd. Följ rubrikerna och teckengränserna i riktlinjerna, och skriv i samma ton som vår tidigare beviljade ansökan. Använd lärdomarna från publikdatan och enkäten. Hitta inte på något: markera det som saknas med [FYLL I].</span></div>
-<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Granska utkastet som en kritisk bedömare i fonden. Betygsätt varje bedömningskriterium från 1 till 5 och föreslå hur den svagaste delen kan stärkas.</span></div></article>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Du är en erfaren ansökningsskrivare inom scenkonst. Hjälp Kollektivet Fyrljus att söka projektstöd för "Havet minns" från Kulturfonden Syd.
+
+Underlag jag har laddat upp:
+- fondens riktlinjer, med rubriker, teckengränser och bedömningskriterier
+- vår tidigare ansökan, som beviljades 2025
+- anteckningar från planeringsmötet om "Havet minns"
+- publikdata och publikenkät från förra turnén
+
+Uppgift: skriv ett första utkast till ansökan.
+- Följ riktlinjernas rubriker i rätt ordning och håll varje avsnitt inom teckengränsen. Ange antal tecken efter varje avsnitt.
+- Skriv i samma ton som vår beviljade ansökan.
+- Använd lärdomarna från publikdatan och enkäten för att visa att vi lär oss av förra turnén.
+- Hitta inte på namn, siffror eller samarbeten. Markera det som saknas med [FYLL I].</span></div>
+<div class="prompt"><span class="lab">Följdprompt, i samma chatt</span><button class="copy">Kopiera</button><span class="ptxt">Granska utkastet som en kritisk bedömare i fonden. Betygsätt varje bedömningskriterium från 1 till 5 och föreslå hur den svagaste delen kan stärkas.</span></div></article>
 
 <article class="card ex"><p class="typ">Övning 5 · rapportering</p><h3>Slutrapport till finansiären</h3>
 <div class="up"><span class="lab">Ladda upp:</span><span class="chip">publikdata_turne_2026.csv</span><span class="chip">budget_och_utfall_turne_2026.csv</span><span class="chip">publikenkat_svar_2026.txt</span><span class="chip">riktlinjer_kulturfonden_syd.txt</span></div>
-<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Skriv en slutrapport till Kulturfonden Syd för "Ljuset vi delar", enligt kraven i riktlinjerna: publiksiffror, ekonomisk redovisning och en kort reflektion. Högst en A4-sida. Var ärlig om det som inte gick som planerat.</span></div></article>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Du hjälper Kollektivet Fyrljus att skriva slutrapporten till Kulturfonden Syd för turnén med "Ljuset vi delar" hösten 2026. Jag har laddat upp publikdata, budget och utfall, publikenkäten och fondens riktlinjer.
+
+Uppgift: skriv en slutrapport enligt kraven i riktlinjerna, med tre delar:
+1. Publiksiffror: antal föreställningar, sålda biljetter, platser och beläggning totalt.
+2. Ekonomisk redovisning: budget mot utfall för de största posterna och resultatet totalt.
+3. Kort reflektion: vad som fungerade, vad som inte gick som planerat och vad vi tar med oss till nästa projekt.
+
+Format: högst en A4-sida, med rubriker. Var ärlig om det som gick sämre, det stärker förtroendet hos fonden.
+
+Visa uträkningarna i en bilaga efter rapporten så att jag kan kontrollera siffrorna.</span></div></article>
 
 <article class="card ex"><p class="typ">Övning 6 · planering</p><h3>Från röriga anteckningar till plan</h3>
 <div class="up"><span class="lab">Ladda upp:</span><span class="chip">anteckningar_nytt_projekt_havet_minns.txt</span><span class="chip">riktlinjer_kulturfonden_syd.txt</span></div>
-<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Gör en produktionsplan för "Havet minns" baklänges från premiär i september 2027. Ta med ansökningsdeadline 15 februari 2027. Lista vad som måste vara klart när, och vem som ansvarar enligt anteckningarna.</span></div>
-<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Vilka öppna frågor och risker i anteckningarna behöver vi lösa först? Ordna dem efter hur bråttom de är.</span></div></article>
+<div class="prompt"><span class="lab">Prompt</span><button class="copy">Kopiera</button><span class="ptxt">Du är producent med erfarenhet av turnerande scenkonst. Jag har laddat upp röriga anteckningar från vårt planeringsmöte om projektet "Havet minns" och Kulturfonden Syds riktlinjer.
+
+Uppgift: gör en produktionsplan baklänges från premiär i september 2027.
+- Ta med ansökningsdeadline 15 februari 2027.
+- Lista vad som måste vara klart när: intervjuer, finansiering, repetitioner, bokning av turné, marknadsföring och skolversionen.
+- Ange vem som ansvarar enligt anteckningarna. Skriv [ANSVARIG?] där det är oklart.
+
+Format: en tabell med kolumnerna Månad, Aktivitet, Ansvarig och Beroenden.</span></div>
+<div class="prompt"><span class="lab">Följdprompt, i samma chatt</span><button class="copy">Kopiera</button><span class="ptxt">Vilka öppna frågor och risker i anteckningarna behöver vi lösa först? Ordna dem efter hur bråttom de är.</span></div></article>
 
 <article class="card ex"><p class="typ">Övning 7 · bygg en assistent</p><h3>Fyrljus egen assistent</h3>
 <p>Ladda upp alla filer i ett Project (Claude), ett Project eller en GPT (ChatGPT) eller en agent (Copilot), och lägg in instruktionen nedan. Testa sedan med frågorna från övning 1–6. Se <a href="#bygg" data-go="bygg">Bygg din assistent</a> för steg för steg.</p>
