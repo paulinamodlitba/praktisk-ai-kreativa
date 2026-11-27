@@ -230,6 +230,27 @@ footer b{color:var(--ink2)}
 
 <article class="card"><p class="typ">Punkt 1 · inspiration <span>45 min</span></p><h3>Vad ska vi med AI till?</h3>
 <p>Hur kan AI hjälpa oss att göra saker på nya och bättre sätt? Vi tittar på AI som assistent, projektledare, bollplank och skapare, och på exempel från kulturlivet: San Francisco Opera, London Transport Museum, Royal Philharmonic Orchestra, Mark Morris Dance Group, Nacka bibliotek och Helsingfors stad. Sedan steget från chatt till egna assistenter och AI-agenter, och till sist säkerhet, bias, faktagranskning och upphovsrätt.</p>
+<div class="slides" id="slides" tabindex="0" aria-label="Bilderna från dragningen">
+<img id="slideImg" src="assets/dragning/s-01.jpg" alt="Bild 1 av 48 från dragningen" style="width:100%;display:block;border:1px solid var(--line);border-radius:10px;aspect-ratio:16/9;object-fit:contain;background:#000">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px">
+<button class="cta ghost" id="slidePrev" type="button" style="margin:0">Föregående</button>
+<span id="slideNum" style="font-variant-numeric:tabular-nums;color:var(--muted,#666)">1 / 48</span>
+<button class="cta ghost" id="slideNext" type="button" style="margin:0">Nästa</button>
+</div>
+<a class="cta ghost" href="assets/dragning-27nov-paulina.pdf" download>Ladda ner bilderna (PDF)</a>
+</div>
+<script>
+(function(){var n=48,c=1,img=document.getElementById('slideImg'),num=document.getElementById('slideNum');
+function pad(x){return x<10?'0'+x:''+x}
+function go(d){c=Math.min(n,Math.max(1,c+d));img.src='assets/dragning/s-'+pad(c)+'.jpg';img.alt='Bild '+c+' av '+n+' från dragningen';num.textContent=c+' / '+n;
+if(c<n){var pre=new Image();pre.src='assets/dragning/s-'+pad(c+1)+'.jpg'}}
+document.getElementById('slidePrev').onclick=function(){go(-1)};document.getElementById('slideNext').onclick=function(){go(1)};
+document.getElementById('slides').addEventListener('keydown',function(e){if(e.key==='ArrowRight'){go(1);e.preventDefault()}if(e.key==='ArrowLeft'){go(-1);e.preventDefault()}});
+var sx=null;img.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+img.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(dx<0?1:-1);sx=null});
+})();
+</script>
+<p><small style="color:var(--muted,#666)">Bläddra med knapparna, piltangenterna eller genom att svepa.</small></p>
 <div class="q"><small>Reflektion</small>Vilket exempel kändes mest relevant för dig?</div></article>
 
 <article class="card"><p class="typ">Punkt 2 · demo och praktiskt <span>15 min</span></p><h3>Vi testar!</h3>
